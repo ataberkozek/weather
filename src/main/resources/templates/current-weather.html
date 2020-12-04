@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Current Weather</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       #weatherboard #city{
+            position: center;
+        }
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid royalblue;
+            padding: 10px;
+            background: lightgray;
+        }
+        div{
+            float: left;
+            padding: 20px;
+        }
+        #cond{
+            padding-right: 50px;
+        }
+        #desc{
+            padding-right: 50px;
+        }
+        #temper{
+            padding-right: 50px;
+        }
+        #feels{
+            padding-right: 50px;
+        }
+        #windSpd{
+            padding-right: 50px;
+        }
+        .clear:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        h3,h1,p{
+            font-family: Calibri;
+        }
+        #city{
+            margin-left: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="weatherboard" class="center clear">
+    <h1 th:text="${#request.getParameter('city')}" id="city" style="text-transform: capitalize"></h1>
+    <div id="cond">
+        <h3 id="conditions">Current Conditions</h3>
+        <p th:text="${currentWeather.description}" id="desc">Description</p>
+    </div>
+    <div id="temper">
+        <h3>Temperature</h3>
+        <p th:text="${currentWeather.temperature} + ' &#8451;'" id="temp">Temperature</p>
+    </div>
+    <div id="feels">
+        <h3>Feels Like</h3>
+        <p th:text="${currentWeather.feelsLike} + ' &#8451;'" id="feel">Feels Like</p>
+    </div>
+    <div id="windSpd">
+        <h3>Wind Speed</h3>
+        <p th:text="${currentWeather.windSpeed} + ' km/s'" id="wind"></p>
+    </div>
+
+</div>
+</body>
+</html>

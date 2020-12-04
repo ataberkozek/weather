@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Service</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #kub{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 5px solid royalblue;
+            padding: 10px;
+            background: lightgray;
+        }
+
+        #city{
+            margin-left: 25px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="kub">
+    <form action="/current-weather">
+        City:
+        <input type="text" name="city" id="city" required>
+        <br>
+        <br>
+        Country:
+        <input type="text" name="country" id="country" required>
+        <br>
+        <input type="submit" value="OK" id="sub">
+    </form>
+</div>
+</body>
+</html>
